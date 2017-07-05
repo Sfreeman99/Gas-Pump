@@ -7,13 +7,15 @@ if paying_type== 'Yes'.upper():
     prepay=input("How much money would you like to put in?\n$: ")
     gas_type = input("Which gas would you like to choose?: \n\tpremium = 2.49\n\tregular = 2.07\n\tmid grade = 2.10\n")
     print('pumping...')
-    time.sleep(3)
+    time.sleep(2)
     with open('log.txt','a') as history:
-        history.write(gas_core.do_prepay(prepay, gas_type))
+
+        history.write('\n{0}, ${1} , {2}'.format(gas_type,prepay,gas_core.do_prepay(prepay, gas_type)))
+    print(gas_core.do_prepay(prepay,gas_type))
 
 elif paying_type == 'No'.upper():
     print('pumping...')
-    time.sleep(3)   
+    time.sleep(2)   
     gallons=input("How many gallons did you put in?\n")
     gas_type=input('Which gas did you choose?\n\tpremium \n\tregular \n\tmid grade\n')
     with open('log.txt','a') as history:
@@ -23,4 +25,5 @@ elif paying_type == 'No'.upper():
     print(gas_core.do_gas_after_pumping(gallons,gas_type))
 else :
     print(".......")
-    time.sleep(2) 
+    time.sleep(2)
+    print("Well you can hit the door!!!") 
