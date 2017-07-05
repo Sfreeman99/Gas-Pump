@@ -8,15 +8,16 @@ if paying_type== 'Yes'.upper():
     gas_type = input("Which gas would you like to choose?: \n\tpremium = 2.49\n\tregular = 2.07\n\tmid grade = 2.10\n")
     print('pumping...')
     time.sleep(5.5)
-    gas_core.do_prepay(prepay, gas_type)
+    with open('log.txt','a') as history:
+        history.write(gas_core.do_prepay(prepay, gas_type))
 
 elif paying_type == 'No'.upper():
     print('pumping...')
     time.sleep(5)   
     gas_price=input("How many gallons did you put in?\n")
     gas_type=input('Which gas did you choose?\n\tpremium \n\tregular \n\tmid grade\n')
-    
-    gas_core.do_gas_after_pumping(gas_price,gas_type)
+    with open('log.txt','a') as history:
+        history.write(gas_core.do_gas_after_pumping(gas_price,gas_type))
 
 else :
     print(".......")

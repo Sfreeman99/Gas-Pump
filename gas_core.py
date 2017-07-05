@@ -8,14 +8,14 @@ def do_prepay(prepay, gas_type):
     '''
     
     if gas_type =='premium':
-         print('Your total gallons would be:  ',round(float(prepay) / 2.49, 2),'gal', sep= ' ')
+         return 'Your total gallons would be: {:.2f} gal '.format(float(prepay) / 2.49, 2) 
     elif gas_type == 'regular':
-        print('Your total gallons would be: $ ', round(float(prepay)/ 2.07, 2),'gal', sep=' ')
+        return 'Your total gallons would be: {:.2f} gal '.format(float(prepay)/ 2.07, 2)
     elif gas_type =='mid grade':
-        print('Your total gallons would be: ', round(float(prepay)/ 2.10, 2),'gal', sep=' ')
+        return 'Your total gallons would be: {:.2f} gal'.format(float(prepay)/ 2.10, 2)
 
     else:
-        print('Ummmmmm Me no Compute')
+        return 'Ummmmmm Me no Compute'
      
 def do_gas_after_pumping(gas_price,gas_type):
     """(str) -> price of gas
@@ -23,11 +23,10 @@ def do_gas_after_pumping(gas_price,gas_type):
     have to pay after pumping your gas
     """
     if gas_type == 'premium':
-        print('Your total is: $',round(float(gas_price)  * 2.49, 2), sep='')
+        return 'Your total is: ${:.2f}'.format(float(gas_price)  * 2.49, 2)
     elif gas_type == 'regular' :
-        print('Your total is: $',round(float(gas_price)  * 2.07, 2), sep='')
+        return 'Your total is: ${:.2f}'.format(float(gas_price)  * 2.07, 2)
     elif gas_type == 'mid grade' :
-        print('Your total is: $', round(float(gas_price)  * 2.10, 2), sep='')
-
+        return 'Your total is: ${:.2f}'.format(float(gas_price)  * 2.10, 2)
     else:
-        print('Ummmmm Me no Compute')
+        return 'Ummmmm Me no Compute'
