@@ -25,25 +25,32 @@ def do_gas_after_pumping(gallons,gas_type):
     have to pay after pumping your gas
 
     >>> do_gas_after_pumping(1.00, 'premium')
-    'Your total is: $2.49'
+    '$2.49'
     >>> do_gas_after_pumping(1.00, 'regular')
-    'Your total is: $2.07'
+    '$2.07'
     >>> do_gas_after_pumping(1.00, 'mid grade')
-    'Your total is: $2.10'
+    '$2.10'
     """
-    if gas_type == 'premium':
-        return 'Your total is: ${:.2f}'.format(float(gallons)  * 2.49, 2)
-    elif gas_type == 'regular' :
-        return 'Your total is: ${:.2f}'.format(float(gallons)  * 2.07, 2)
-    elif gas_type == 'mid grade' :
-        return 'Your total is: ${:.2f}'.format(float(gallons)  * 2.10, 2)
-    else:
-        return 'Ummmmm Me no Compute'
+    # if gas_type == 'premium':
+    #     return 'Your total is: ${:.2f}'.format(float(gallons)  * 2.49, 2)
+    # elif gas_type == 'regular' :
+    #     return 'Your total is: ${:.2f}'.format(float(gallons)  * 2.07, 2)
+    # elif gas_type == 'mid grade' :
+    #     return 'Your total is: ${:.2f}'.format(float(gallons)  * 2.10, 2)
+    # else:
+    #     return 'Ummmmm Me no Compute'
+    for i in tank:
+        if gas_type == i[0]:
+            return '${:.2f}'.format(float(gallons) * i[1])
 
 
 
 
 
-
+tank = [
+    ['premium', 2.49],
+    ['regular', 2.07],
+    ['mid grade', 2.10]
+]
 
 
