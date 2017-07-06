@@ -6,18 +6,21 @@ def do_prepay(prepay, gas_type):
     input a number
 
     >>> do_prepay(2.49, 'premium')
-    'Your total gallons would be: 1.00 gal'
+    '1.00 gal'
     '''
     
-    if gas_type =='premium':
-         return 'Your total gallons would be: {:.2f} gal'.format(float(prepay) / 2.49, 2) 
-    elif gas_type == 'regular':
-        return 'Your total gallons would be: {:.2f} gal'.format(float(prepay)/ 2.07, 2)
-    elif gas_type =='mid grade':
-        return 'Your total gallons would be: {:.2f} gal'.format(float(prepay)/ 2.10, 2)
+    # if gas_type =='premium':
+    #      return 'Your total gallons would be: {:.2f} gal'.format(float(prepay) / 2.49, 2) 
+    # elif gas_type == 'regular':
+    #     return 'Your total gallons would be: {:.2f} gal'.format(float(prepay)/ 2.07, 2)
+    # elif gas_type =='mid grade':
+    #     return 'Your total gallons would be: {:.2f} gal'.format(float(prepay)/ 2.10, 2)
 
-    else:
-        return 'Ummmmmm Me no Compute'
+    # else:
+    #     return 'Ummmmmm Me no Compute'
+    for i in tank:
+        if gas_type == i[0]:
+            return '{:.2f} gal'.format(float(prepay) / i[1])
      
 def do_gas_after_pumping(gallons,gas_type):
     """(float, str) -> price of gas
