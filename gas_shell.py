@@ -13,17 +13,20 @@ if paying_type== 'Yes'.upper():
     with open('log.txt','a') as history:
 
         history.write('\n{0}, ${1} , {2}'.format(gas_type,money,gas_core.gas_pump(gas_type,money)))
-    print('With $',money,' you get ',gas_core.gas_pump(gas_type,money),' gal.')
+    
+    print('With $',money,'you get',gas_core.gas_pump(gas_type,money),'gal.')
+
 elif paying_type == 'No'.upper():
-    print('pumping...')
+    print('Head to the cashier to continue')
     time.sleep(2)   
-    gallons=input("How many gallons did you put in?\n")
+    money =input("How much money did you give the cashier?\n")
     gas_type=input('Which gas did you choose?\n\tpremium \n\tregular \n\tmid grade\n')
+    gallons = gas_core.gas_pump(gas_type, money)
     with open('log.txt','a') as history:
         
-        history.write('\n{0}, {1} gal. , {2}'.format(gas_type,gallons,gas_core.do_gas_after_pumping(gallons,gas_type)))
+        history.write('\n{0}, ${1} , {2}'.format(gas_type,money,gas_core.gas_pump(gas_type,money)))
     
-    print(gas_core.do_gas_after_pumping(gallons,gas_type))
+    print('With $',money,'you get',gas_core.gas_pump(gas_type,money),'gal.')
 else :
     print(".......")
     time.sleep(2)
