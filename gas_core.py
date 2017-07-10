@@ -1,49 +1,16 @@
-# def do_prepay(prepay, gas_type):
-#     ''' (float, string) -> None
-#     Calculates how much gas you would get when you
-#     input a number
 
-#     >>> do_prepay(2.49, 'premium')
-#     '1.00 gal'
-#     '''
-    
-#     for item in tank:
-#         if gas_type == item[0]:
-#             return '{:.2f} gal'.format(float(prepay) / item[1])
-     
-# def do_gas_after_pumping(gallons,gas_type):
-#     """(float, str) -> price of gas
-#     Calculates after pumping how much money you would
-#     have to pay after pumping your gas
-
-#     >>> do_gas_after_pumping(1.00, 'premium')
-#     '$2.49'
-#     >>> do_gas_after_pumping(1.00, 'regular')
-#     '$2.07'
-#     >>> do_gas_after_pumping(1.00, 'mid grade')
-#     '$2.10'
-#     """
-    
-#     for item in tank:
-#         if gas_type == item[0]:
-#             return '${:.2f}'.format(float(gallons) * item[1])
 
 def gas_pump(gas_type, money):
     ''' '''
-    open_inventory()
     for item in open_inventory():
         if gas_type.lower().strip() == item[0].lower().strip():
-            gallons = float(money) * float(item[1])
+            gallons = float(money) / float(item[1])
             return gallons
-            
-
-
 
 def open_inventory():
     with open('tank.txt', 'r') as tank:
         tank.readline()
         str_inventory = tank.readlines()
-
     inventory = []
     for item in str_inventory:
         sublist = item.split(', ')
@@ -57,11 +24,55 @@ def update_inventory(inventory, gas_type, gallons):
     for item in inventory:
         if item[0] == gas_type:
             item[2] = float(item[2]) - float(gallons)
+            
         message += ('{0}, {1:.2f}, {2:.2f}\n'.format(item[0],item[1],item[2]))
     with open('tank.txt','w') as tank:
         tank.write(message)
+
+def refill_tank(inventory):
+    message = 'name, price, quantity\n'
+    for item in inventory:
+        item[2] = float(5000)    
+        message += '{0}, {1:.2f}, {2:.2f}\n'.format(item[0],item[1],item[2])
+    with open('tank.txt','w') as refill:
+        refill.write(message)
+    return message
+
+def initiate_tank():
+    t = [
+        'name, price, quantity',
+        'regular, 2.07, 5000.0',
+        'mid grade, 2.10, 5000.0',
+        'premium, 2.49, 5000.0'
+    ]
+    with open('tank.txt', 'w') as file:
+        file.write('\n'.join(t))
+
+
+def purchase_history(gas_type, money, gallons):
+    with open('log.txt','a') as history:
+        history.write('{0}, {1}, {2}\n'.format(gas_type, money, gallons))
+
+def revenue():
+    with open('log.txt', 'r') as revenue:
+        revenue.readline()
+        revenue = revenue.readlines()
+    
+    history = []
+    total = []
+    for item in revenue:
+        money = item.split(', ')
+        history.append([money[0], float(money[1]), float(money[2])])
+
+    for item in history:
+        total.append(item[1])
+    
+    return sum(total)
+
+
+if __name__ == '__main__':
+    tank = open_inventory()
+    initiate_tank()
+    print(revenue())
     
 
-
-
-tank = open_inventory()
