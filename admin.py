@@ -1,0 +1,26 @@
+import gas_core
+
+    
+
+
+#needs multiple ways to make them
+name = input('What\'s your name?: ').title().strip()
+answer = input('Hello Administrator {0}. What would you like to do today?\n1. Look at purchase history\n2. Look at Tank Levels\n3. Total Revenue\n4. Refill Tanks\n\n'.format(name)).upper()
+
+
+if answer == '1'.strip():
+    with open('log.txt') as file:
+        file = file.read()
+    print(file)
+
+if answer == '2'.strip():
+    with open('tank.txt') as tank:
+        print(tank.read())
+
+if answer == '3'.strip():
+    print(gas_core.revenue())
+
+if answer == '4'.strip():
+    inventory = gas_core.open_inventory()
+    print(gas_core.refill_tank(inventory))
+

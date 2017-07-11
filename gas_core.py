@@ -67,12 +67,11 @@ def revenue():
     for item in history:
         total.append(item[1])
     
-    return sum(total)
+    return '${}'.format(sum(total))
 
 
 if __name__ == '__main__':
     tank = open_inventory()
-    initiate_tank()
     print(revenue())
     
 
