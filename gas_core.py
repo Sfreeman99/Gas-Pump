@@ -1,4 +1,4 @@
-
+from disk import *
 
 def gas_pump(gas_type, money):
     ''' '''
@@ -54,10 +54,10 @@ def purchase_history(gas_type, money, gallons):
         history.write('\n{0}, {1}, {2}'.format(gas_type, money, gallons))
 
 def admin_revenue():
-    with open('log.txt', 'r') as revenue:
-        revenue.readline()
-        revenue = revenue.readlines()
-    
+    # with open('log.txt', 'r') as revenue:
+    #     revenue.readline()
+    #     revenue = revenue.readlines()
+    revenue = read_text()
     history = []
     total = []
     for item in revenue:
