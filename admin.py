@@ -18,6 +18,6 @@ elif answer == '3'.strip():
     print(gas_core.admin_revenue())
 
 elif answer == '4'.strip():
-    inventory = gas_core.open_inventory()
+    inventory = disk.open_inventory()
     print(gas_core.refill_tank(inventory))
 
