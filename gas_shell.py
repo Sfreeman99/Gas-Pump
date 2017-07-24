@@ -1,6 +1,7 @@
 import time
 import gas_core
 import disk
+from os.path import isfile
 def prepay():
     inventory = disk.open_inventory()
     money = input("How much money would you like to put in?\n$: ")
@@ -23,7 +24,7 @@ def pay_after():
     print('With $',money,'you get',gas_core.gas_pump(gas_type,money),'gal.')
     gas_core.update_inventory(inventory, gas_type, gallons)
 
-def main():
+def decision():
     input("Welcome to Shedlia's gas Station!! How are you doing? \n")
     paying_type = input('would you like to prepay with a card?\n\tYes\n\tNo\n').upper().strip()
     if paying_type == 'YES':       
@@ -38,7 +39,12 @@ def main():
         time.sleep(2)
         print("Well you can hit the door!!!") 
 
-   
+def main():
+    if isfile('tank.txt'):
+        decision()
+    if not isfile('tank.txt'):
+        disk.initiate_tank()
+        decision()
 
 if __name__ == '__main__':
     main()
