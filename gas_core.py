@@ -5,7 +5,7 @@ def gas_pump(gas_type, money):
     for item in open_inventory():
         if gas_type.lower().strip() == item[0].lower().strip():
             gallons = float(money) / float(item[1])
-            return gallons
+            return round(gallons, 2)
 
 def open_inventory():
     with open('tank.txt', 'r') as tank:
@@ -51,9 +51,9 @@ def initiate_tank():
 
 def purchase_history(gas_type, money, gallons):
     with open('log.txt','a') as history:
-        history.write('{0}, {1}, {2}\n'.format(gas_type, money, gallons))
+        history.write('\n{0}, {1}, {2}'.format(gas_type, money, gallons))
 
-def revenue():
+def admin_revenue():
     with open('log.txt', 'r') as revenue:
         revenue.readline()
         revenue = revenue.readlines()
@@ -69,6 +69,14 @@ def revenue():
     
     return '${}'.format(sum(total))
 
+def admin_read_tank():
+    with open('tank.txt') as tank:
+        print(tank.read())
+
+def admin_purchase_history():
+    with open('log.txt') as file:
+        file = file.read()
+    print(file)
 
 if __name__ == '__main__':
     tank = open_inventory()
