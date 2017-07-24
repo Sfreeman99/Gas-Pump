@@ -2,7 +2,7 @@ import time
 import gas_core
 import disk
 def prepay():
-    inventory = gas_core.open_inventory()
+    inventory = disk.open_inventory()
     money = input("How much money would you like to put in?\n$: ")
     gas_type = input("Which gas would you like to choose?: \n\tpremium = 2.49\n\tregular = 2.07\n\tmid grade = 2.10\n")
     print('pumping...')
@@ -13,7 +13,7 @@ def prepay():
     gas_core.update_inventory(inventory, gas_type, gallons)
 
 def pay_after():
-    inventory = gas_core.open_inventory()
+    inventory = disk.open_inventory()
     print('Head to the cashier to continue')
     time.sleep(2)
     money = input("How much money did you give the cashier?\n$: ")

@@ -40,6 +40,9 @@ def admin_revenue():
     return '${}'.format(sum(total))
 
 
+
+
+
 if __name__ == '__main__':
     tank = open_inventory()
     print(revenue())

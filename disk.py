@@ -22,12 +22,12 @@ def purchase_history(gas_type, money, gallons):
 def initiate_tank():
     t = [
         'name, price, quantity',
-        'regular, 2.07, 5000.0',
-        'mid grade, 2.10, 5000.0',
-        'premium, 2.49, 5000.0'
+        'regular, 2.07, 5000.00',
+        'mid grade, 2.10, 5000.00',
+        'premium, 2.49, 5000.00'
     ]
     with open('tank.txt', 'w') as file:
-        file.write('\n'.join(t))
+        return file.write('\n'.join(t))
 
 def open_inventory():
     with open('tank.txt', 'r') as tank:
