@@ -54,9 +54,6 @@ def purchase_history(gas_type, money, gallons):
         history.write('\n{0}, {1}, {2}'.format(gas_type, money, gallons))
 
 def admin_revenue():
-    # with open('log.txt', 'r') as revenue:
-    #     revenue.readline()
-    #     revenue = revenue.readlines()
     revenue = read_text()
     history = []
     total = []
@@ -69,9 +66,6 @@ def admin_revenue():
     
     return '${}'.format(sum(total))
 
-def admin_read_tank():
-    with open('tank.txt') as tank:
-        print(tank.read())
 
 def admin_purchase_history():
     with open('log.txt') as file:

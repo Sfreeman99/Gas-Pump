@@ -5,3 +5,7 @@ def read_text():
         revenue.readline()
         revenue = revenue.readlines()
     return revenue
+
+def admin_read_tank():
+    with open('tank.txt') as tank:
+        return tank.read()
