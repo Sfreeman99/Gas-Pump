@@ -9,3 +9,8 @@ def read_text():
 def admin_read_tank():
     with open('tank.txt') as tank:
         return tank.read()
+
+def admin_purchase_history():
+    with open('log.txt') as file:
+        file = file.read()
+    return file

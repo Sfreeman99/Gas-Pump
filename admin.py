@@ -9,7 +9,7 @@ answer = input('Hello Administrator {0}. What would you like to do today?\n1. Lo
 
 
 if answer == '1'.strip():
-    gas_core.admin_purchase_history()
+    print(disk.admin_purchase_history())
 
 elif answer == '2'.strip():
     print(disk.admin_read_tank())

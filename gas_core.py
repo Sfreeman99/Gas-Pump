@@ -67,11 +67,6 @@ def admin_revenue():
     return '${}'.format(sum(total))
 
 
-def admin_purchase_history():
-    with open('log.txt') as file:
-        file = file.read()
-    print(file)
-
 if __name__ == '__main__':
     tank = open_inventory()
     print(revenue())
