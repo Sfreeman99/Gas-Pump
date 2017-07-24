@@ -20,4 +20,3 @@ elif answer == '3'.strip():
 elif answer == '4'.strip():
     inventory = disk.open_inventory()
     print(gas_core.refill_tank(inventory))
-

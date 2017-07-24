@@ -45,6 +45,5 @@ def main():
     if not isfile('tank.txt'):
         disk.initiate_tank()
         decision()
-
 if __name__ == '__main__':
     main()
