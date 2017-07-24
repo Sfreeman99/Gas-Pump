@@ -12,7 +12,7 @@ if answer == '1'.strip():
     gas_core.admin_purchase_history()
 
 elif answer == '2'.strip():
-    disk.admin_read_tank()
+    print(disk.admin_read_tank())
 
 elif answer == '3'.strip():
     print(gas_core.admin_revenue())
