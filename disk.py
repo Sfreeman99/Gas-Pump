@@ -39,3 +39,7 @@ def open_inventory():
         inventory.append([sublist[0], float(sublist[1].strip()), float(sublist[2].strip())])
 
     return inventory
+
+def write(message):
+     with open('tank.txt','w') as tank:
+        tank.write(message)

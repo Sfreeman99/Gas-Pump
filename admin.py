@@ -15,8 +15,11 @@ elif answer == '2'.strip():
     print(disk.admin_read_tank())
 
 elif answer == '3'.strip():
-    print(gas_core.admin_revenue())
+    revenue = disk.read_text()
+    print(gas_core.admin_revenue(revenue))
 
 elif answer == '4'.strip():
     inventory = disk.open_inventory()
+    message = gas_core.refill_tank(inventory)
     print(gas_core.refill_tank(inventory))
+    disk.write(message)

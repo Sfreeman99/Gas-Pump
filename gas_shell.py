@@ -11,7 +11,9 @@ def prepay():
     gallons = gas_core.gas_pump(gas_type, money)
     disk.purchase_history(gas_type,money,gallons)
     print('With $',money,'you get',gas_core.gas_pump(gas_type,money),'gal.')
-    gas_core.update_inventory(inventory, gas_type, gallons)
+    message = gas_core.update_inventory(inventory, gas_type, gallons)
+    disk.write(message)
+
 
 def pay_after():
     inventory = disk.open_inventory()
@@ -22,7 +24,8 @@ def pay_after():
     gallons = gas_core.gas_pump(gas_type, money)
     disk.purchase_history(gas_type,money,gallons)
     print('With $',money,'you get',gas_core.gas_pump(gas_type,money),'gal.')
-    gas_core.update_inventory(inventory, gas_type, gallons)
+    message = gas_core.update_inventory(inventory, gas_type, gallons)
+    disk.write(message)
 
 def decision():
     input("Welcome to Shedlia's gas Station!! How are you doing? \n")
