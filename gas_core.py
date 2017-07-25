@@ -15,16 +15,14 @@ def update_inventory(inventory, gas_type, gallons):
             
         message += ('{0}, {1:.2f}, {2:.2f}\n'.format(item[0],item[1],item[2]))
     return message
-    # with open('tank.txt','w') as tank:
-    #     tank.write(message)
+    
 
 def refill_tank(inventory):
     message = 'name, price, quantity\n'
     for item in inventory:
         item[2] = float(5000)    
         message += '{0}, {1:.2f}, {2:.2f}\n'.format(item[0],item[1],item[2])
-    # with open('tank.txt','w') as refill:
-    #     refill.write(message)
+    
     return message
 
 def admin_revenue(revenue):
